@@ -28,8 +28,8 @@ Linked List
         * มีตัวตำแหน่งของ Head เอาไว้เพื่อบอกตำแหน่ง Head ของ Linked List
         * Types 2 แบบ
                 1 เส้นตรง
-                  Singly Linked : ชี้ตัวต่อไป
-                  Doubly Linked : ชี้ตัวก่อนหน้า
+                  Singly Linked : ชี้ตัวต่อไป  data:pointer
+                  Doubly Linked : ชี้ตัวก่อนหน้า ชี้ตัวต่อไป pointer:data:pointer
                 2 วงกลม (ใช้ได้ทั้ง Linked List , Queue)
                   Circular Linked List : ชี้ตัวต่อไป
                   Doubly Circular Linked List : ชี้ตัวก่อนหน้า
