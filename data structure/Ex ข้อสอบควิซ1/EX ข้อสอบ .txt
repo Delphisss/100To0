@@ -1,0 +1,58 @@
+*************************************************************
+
+จงเขียนฟังก์ชันที่ชื่อว่า calculateString() เพื่อคำนวนผลลัพธ์ที่อยู่ใน String text แล้ว return ออกมาเป็น int
+String text ที่ว่าจะเป็นการคำนวณของตัวเลขแค่ 2 ตัว (1 คู่ ) เท่านั้น เช่น "3 + 4", "50 - 10", " 6 * 9"
+การคำนวนข้อนี้ จะมีแต่ +, -, * เท่านั้น ไม่มีหาร ครับ ไม่ต้องเช็คกรณีนี้ และ ให้ return ออกมาเป็น int ได้เลย
+โจทย์จะไม่ทดสอบกรณีที่เป็น ตัวเลขหลายตัวแบบนี้ "1 + 2 + 3" นะครับ คุณไม่ต้อง for loop ไปนะ (แต่ถ้าจะให้ทำ ก็ต้องทำได้นะครับ) 
+
+โปรดศึกษาตัวอย่าง
+
+คำสั่งที่จำเป็นในการทำโจทย์ข้อนี้
+1. การตัดคำสำหรับตัวแปร String text โดยใช้ช่องว่าง แล้วให้ผลผลลัพธ์ออกมาเป็น String array  ให้ใช้คำสั่ง text.split(" ") (มีช่องว่าง 1 เคาะ ระหว่างฟันหนู)
+เช่น String text = "I love cpe 217" แล้วคุณเรียกใช้คำสั่ง String[] textArray = text.split(" ") ผลลัพธ์ที่ได้ คือ textArray = {"I", "love", "cpe", "217"}
+
+2. การตรวจสอบว่า String a มีค่าที่บรรจุอยู่เท่ากันกับ String b หรือไม่ ให้ใช้คำสั่ง a.equals(b) (อย่าใช้คำสั่ง == นะครับ)
+เช่น ถ้า a = "I love cpe" และ b = "I love cpe 217" ค่าของ a.equals(b) จะมีค่าเป็น false
+
+3. การแปลงชนิดของตัวแปร String a ให้กลายเป็น int ให้ใช้คำสั่ง Integer.parseInt(a)
+เช่น ถ้า a = "217" หากต้องการแปลงเป็น int ก็ให้เรียกใช้คำสั่ง int b = Integer.parseInt(a)
+
+
+*************************************************************
+
+public class Calculator {
+    public static int calculateString(String text) {
+        // ใช้ split() เพื่อแยกคำใน String ด้วยช่องว่าง
+        String[] textArray = text.split(" ");
+
+        // ดึงตัวเลขและตัวดำเนินการออกมาจาก textArray
+        int num1 = Integer.parseInt(textArray[0]);
+        int num2 = Integer.parseInt(textArray[2]);
+        String operator = textArray[1];
+
+        // ดำเนินการคำนวณตามตัวดำเนินการ
+        int result = 0;
+        switch (operator) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        // เรียกใช้งานฟังก์ชัน calculateString() และแสดงผลลัพธ์
+        String text = "3 + 4";
+        int result = calculateString(text);
+        System.out.println("Result: " + result);  // ผลลัพธ์ควรจะเป็น 7
+    }
+}
+
+*************************************************************

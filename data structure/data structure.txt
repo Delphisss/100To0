@@ -38,7 +38,7 @@ Linked List
         
          EX.
                 Singly Linked
-
+ 
                 Head
                 [:1000]
                    |
