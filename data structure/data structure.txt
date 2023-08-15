@@ -30,7 +30,7 @@ Linked List
                 1 เส้นตรง
                   Singly Linked : ชี้ตัวต่อไป
                   Doubly Linked : ชี้ตัวก่อนหน้า
-                2 วงกลม
+                2 วงกลม (ใช้ได้ทั้ง Linked List , Queue)
                   Circular Linked List : ชี้ตัวต่อไป
                   Doubly Circular Linked List : ชี้ตัวก่อนหน้า
 
