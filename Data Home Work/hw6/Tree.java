@@ -117,14 +117,23 @@ public class Tree extends BTreePrinter{ // Fix this
         // Implement insert() using the non-recursive version
         // This function should call findClosestLeaf()
         Node current = findClosestLeaf(root, key);
-        
-        if(current == null) root = new Node(key);
-        
-        else if(key < current.key){
-            current.left = new Node(key);
-        }
-        else if(key > current.key){
-            current.right = new Node(key);
+    
+        if (current == null) {
+            root = new Node(key);
+        } else if (key < current.key) {
+            if (current.left == null || current.left.key != key) {
+                current.left = new Node(key);
+            } else {
+                System.out.println("Duplicated key!!!"); // Handle duplicate key
+            }
+        } else if (key > current.key) {
+            if (current.right == null || current.right.key != key) {
+                current.right = new Node(key);
+            } else {
+                System.out.println("Duplicated key!!!"); // Handle duplicate key
+            }
+        } else {
+            System.out.println("Duplicated key!!!"); // Handle duplicate key
         }
     }
     
