@@ -8,33 +8,33 @@ public class AVLTree extends BTreePrinter{
     
     public void singleRotateFromLeft(Node y) {
         // Do something
-        Node w = y.parent;
-        Node x = y.left;
-        if(w != null){
-            if(x.right == null){
-                y.left = null;
+            Node w = y.parent;
+            Node x = y.left;
+            if(w != null){
+                if(x.right == null){
+                    y.left = null;
+                }
+                else if(x.right != null){
+                    y.left = x.right;
+                    x.right.parent = y;
+                }
+                x.right = y;
+                y.parent = x;
+                x.parent = w;
+                if(w.left == y) w.left = x;
+                else if(w.right == y) w.right = x;
             }
-            else if(x.right != null){
-                y.left = x.right;
+            else{
+                if(x.right == null) y.left = null;
+                else if(x.right != null){
                 x.right.parent = y;
+                y.left = x.right;
+                }
+                x.right = y;
+                y.parent = x;
+                root = x;
+                x.parent = null;
             }
-            x.right = y;
-            y.parent = x;
-            x.parent = w;
-            if(w.left == y) w.left = x;
-            else if(w.right == y) w.right = x;
-        }
-        else{
-            if(x.right == null) y.left = null;
-            else if(x.right != null){
-            x.right.parent = y;
-            y.left = x.right;
-            }
-            x.right = y;
-            y.parent = x;
-            root = x;
-            x.parent = null;
-        }
     }
 
     public void singleRotateFromRight(Node y) {
